@@ -9,10 +9,10 @@ else:
 
 
 if modulo > 5:
-    print("last digit of {} is {} and is grater than 5".format(number, modulo))
+    print("last digit of {0} is {1} and is grater than 5".format(number, modulo))
 
 elif modulo == 0:
-    print("Last digit of {} is {} and is 0".format(number, modulo))
+    print("Last digit of {0} is {1} and is 0".format(number, modulo))
 
 elif modulo < 6 and number != 0:
-    print("Last digit of {} is {} and is less than 6 and not 0".format(number, modulo))
+    print("Last digit of {0} is {1} and is less than 6 and not 0".format(number, modulo))
