@@ -14,5 +14,5 @@ if modulo > 5:
 elif modulo == 0:
     print("Last digit of {} is {} and is 0".format(number, modulo))
 
-elif modulo < 6 and modulo != 0:
+elif modulo < 6 and number != 0:
     print("Last digit of {} is {} and is less than 6 and not 0".format(number, modulo))
