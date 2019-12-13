@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-for i in reversed(range(97, 123)):
-    if i % 2 == 0:
-        print('{:s}'.format(chr(i)), end="")
-    elif i % 2 != 0:
-        print('{:s}'.format(chr(i - 32)), end="")
+for num in range(90, 64, -1):
+    if num % 2 == 0:
+        num = num + 32
+    else:
+        num = num
+    print('{}'.format(chr(num)), end='')
