@@ -1,7 +1,11 @@
 #!/usr/bin/python3
+def main():
+    tot = 0
+    for iterate in range(1, len(sys.argv)):
+        tot += int(sys.argv[iterate])
+    else:
+        return print("{}".format(tot))
+
 if __name__ == '__main__':
-    from sys import argv
-    add = 0
-    for ind in argv[1:]:
-        add = add + int(ind)
-    print(add)
+    import sys
+    main()
