@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-for num in range(0, 100):
-    a = num / 10
-    b = num % 10
-
-    if a < b and a != b and num != 89:
-        print("{0:0=2d}, ".format(num), end='')
-    if num == 89:
-        print("{0}".format(num))
+for number in range(0, 10):
+    for number2 in range(0, 10):
+        if number < number2:
+            if not (number == 8 and number2 == 9):
+                print('{}{}, '.format(number, number2), end='')
+        else:
+                print('{}{}'.format(number, number2), end='')
+print('')
