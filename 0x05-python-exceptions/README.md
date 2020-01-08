@@ -1,6 +1,6 @@
 General
 
-    Why Python programming is awesome (don’t forget to tweet today, with the hashtag #pythoniscool :))
+    Why Python programming is awesome
     What’s the difference between errors and exceptions
     What are exceptions and how to use them
     When do we need to use exceptions
