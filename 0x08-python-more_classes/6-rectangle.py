@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-#!/usr/bin/python3
 '''
 Empty class Rectangle that defines a rectangle
 '''
