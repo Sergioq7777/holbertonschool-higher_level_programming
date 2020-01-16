@@ -2,17 +2,12 @@
 
 
 class Rectangle:
-#Init
     def __init__(self, width=0, height=0):
             self.height = height
             self.width = width
-
-#Getter Height
     @property
     def height(self):
         return self.__height
-
-#Getter Height
     @height.setter
     def height(self, value):
         if not isinstance(value, int):
@@ -22,12 +17,9 @@ class Rectangle:
         else:
             self.__height = value
 
-#Getter Width
     @property
     def width(self):
         return self.__width
-
-#Setter Width
     @width.setter
     def width(self, value):
         if not isinstance(value, int):
