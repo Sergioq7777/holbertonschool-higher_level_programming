@@ -1,17 +1,9 @@
 #!/usr/bin/python3
-safe_print_integer = __import__('1-safe_print_integer').safe_print_integer
+matrix_divided = __import__('2-matrix_divided').matrix_divided
 
-value = 89
-has_been_print = safe_print_integer(value)
-if not has_been_print:
-    print("{} is not an integer".format(value))
-
-value = -89
-has_been_print = safe_print_integer(value)
-if not has_been_print:
-    print("{} is not an integer".format(value))
-
-value = "Holberton"
-has_been_print = safe_print_integer(value)
-if not has_been_print:
-    print("{} is not an integer".format(value))
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6]
+]
+print(matrix_divided(matrix, 3))
+print(matrix)
