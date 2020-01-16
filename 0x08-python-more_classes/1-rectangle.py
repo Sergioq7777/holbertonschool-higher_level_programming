@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+
+
 class Rectangle:
 #Init
     def __init__(self, width=0, height=0):
