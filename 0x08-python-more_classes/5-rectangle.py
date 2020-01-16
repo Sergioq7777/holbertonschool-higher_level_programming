@@ -1,58 +1,62 @@
 #!/usr/bin/python3
-"""
-Class Rectangle
-"""
+'''
+Empty class Rectangle that defines a rectangle
+'''
 
 
 class Rectangle:
+    '''
+    class that will contain a description of rectangle
+    '''
+    side = 0
+
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
-    @property
-    def height(self):
-        return self.__height
-    @height.setter
-    def height(self, value):
-        if type(value) == int and value >= 0:
-            self.__height = value
-        elif type(value) != int:
-            raise NameError("height must be an integer")
-        elif value < 0:
-            raise NameError("height must be >= 0")
+
     @property
     def width(self):
         return self.__width
+
     @width.setter
     def width(self, value):
-        if type(value) == int and value >= 0:
+        if not isinstance(value, int):
+            raise TypeError('width must be an integer')
+        if value < 0:
+            raise ValueError('width must be >= 0')
+        else:
             self.__width = value
-        elif type(value) != int:
-            raise NameError("width must be an integer")
-        elif value < 0:
-            raise NameError("width must be >= 0")
+
+    @property
+    def height(self):
+        return self.__height
+
+    @height.setter
+    def height(self, value):
+        if not isinstance(value, int):
+            raise TypeError('height must be an integer')
+        if value < 0:
+            raise ValueError('height must be >= 0')
+        else:
+            self.__height = value
+
     def area(self):
-        return self.__height*self.__width
+        return(self.__width * self.__height)
 
     def perimeter(self):
-        if self.__height == 0 or self.__width == 0:
-            self.__perimeter = 0
-        else:
-            self.__perimeter = 2 * (self.__height + self.__width)
-        return self.__perimeter
+        side = self.__width + self.__height
+        if self.__width == 0 or self.__height == 0:
+            return 0
+        return(side + side)
+
     def __str__(self):
-        square = []
-        if self.__width and self.__height:
-            for i in range(0, self.__height):
-                for j in range(self.__width):
-                    square.append("#")
-                if j <= self.__width:
-                    square.append('\n')
-            return "".join(square[:-1])
-        else:
-            square = ''
-            return square
+        if self.__width == 0 or self.__height == 0:
+            return ('')
+        return(('#' * self.__width + '{0}'.
+                format('\n')) * (self.__height - 1) + '#' * self.__width)
+
     def __repr__(self):
-        return "Rectangle" + "(" + str(self.__width)\
-            + ", " + str(self.__height) + ")"
+        return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
+
     def __del__(self):
         print("Bye rectangle...")
