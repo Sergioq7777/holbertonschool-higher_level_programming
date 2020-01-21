@@ -3,6 +3,6 @@
 
 class MyList(list):
     def print_sorted(self):
-        _list = self[:]
-        _list.sort()
-        print(_list)
+        list_a = self[:]
+        list_a.sort()
+        print(list_a)
