@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" ADD and Sort elemnts on a list """
 
 
 class MyList(list):
