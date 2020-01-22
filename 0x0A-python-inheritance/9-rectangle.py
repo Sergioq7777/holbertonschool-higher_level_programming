@@ -11,13 +11,16 @@ class BaseGeometry:
         elif value <= 0:
             raise ValueError(name + " must be greater than 0")
 
+
 class Rectangle(BaseGeometry):
     def __init__(self, width, height):
         self.integer_validator("width", width)
         self.integer_validator("height", height)
         self.__width = width
         self.__height = height
+
     def __str__(self):
         return "[Rectangle] " + str(self.__width) + "/" + str(self.__height)
+
     def area(self):
         return self.__width * self.__height
