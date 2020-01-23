@@ -1,45 +1,23 @@
 #!/usr/bin/python3
 """
-Class BaseGeometry
+Script that adds all arguments to a Python list, and then save them to a file.
 """
 
 
-class BaseGeometry:
-    """
-    Raise an exception for area not defined
-    """
-    def area(self):
-        raise Exception("area() is not implemented")
+import sys
+import os.path
 
-    """
-    Validate Value type and #
-    """
-    def integer_validator(self, name, value):
-        if type(value) != int:
-            raise TypeError(name + " must be an integer")
-        elif value <= 0:
-            raise ValueError(name + " must be greater than 0")
-"""
-Class Rectangle
-"""
+save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
+load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
 
+fil3 = 'add_item.json'
 
-class Rectangle(BaseGeometry):
-    """
-    Constructor method initializer
-    """
-    def __init__(self, width, height):
-        self.integer_validator("width", width)
-        self.integer_validator("height", height)
-        self.__width = width
-        self.__height = height
-    """
-    Print string with str
-    """
-    def __str__(self):
-        return "[Rectangle] " + str(self.__width) + "/" + str(self.__height)
-    """
-    Calculate and return rectangle area
-    """
-    def area(self):
-        return self.__width * self.__height
+mylist = []
+
+if os.path.isfile(fil3):
+    mylist = load_from_json_file(fil3)
+
+if len(sys.argv) > 1:
+    for i in sys.argv[1:]:
+        mylist.append(i)
+save_to_json_file(mylist, fil3)
