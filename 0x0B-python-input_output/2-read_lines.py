@@ -2,13 +2,19 @@
 
 
 def read_lines(filename="", nb_lines=0):
-    with open(filename) as f:
-        if nb_lines <= 0 or nb_lines >= len(f.readlines()):
-            txt = f.read()
-            print(txt, end='')
+
+    with open(filename, encoding='utf-8') as file:
+        c = 0
+        cu = 0
+
+        for line in file:
+            cu += 1
+        file.seek(0)
+
+        if nb_lines <= 0 or nb_lines >= cu:
+            print(file.read(), end='')
+            return
         else:
-            for line in f:
-                print(line, end='')
-                i += 1
-                if i == nb_lines:
-                    break
+            while c < nb_lines:
+                print(file.readline(), end='')
+                c += 1
