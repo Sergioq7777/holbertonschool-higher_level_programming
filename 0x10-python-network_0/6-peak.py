@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Function to find a peak """
+""" Find peak """
 
 
 def findPeakUtil(arr, low, high):
