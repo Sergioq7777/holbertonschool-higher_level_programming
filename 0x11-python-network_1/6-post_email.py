@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-""" urlib for first time check status"""
+""" takes Url and email, send an post"""
 import requests
-from sys import argv
+import sys
 
 if __name__ == "__main__":
-    r = requests.post(argv[1], data={'email': argv[2]})
-    print(r.text)
-
+    data = {'email': sys.argv[2]}
+    var = requests.post(sys.argv[1], data)
+    print(var.text)
