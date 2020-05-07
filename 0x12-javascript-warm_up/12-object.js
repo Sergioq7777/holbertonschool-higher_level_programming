@@ -1,4 +1,3 @@
-
 #!/usr/bin/node
 const myObject = {
   type: 'object',
@@ -7,5 +6,4 @@ const myObject = {
 console.log(myObject);
 
 myObject.value = 89;
-
 console.log(myObject);
