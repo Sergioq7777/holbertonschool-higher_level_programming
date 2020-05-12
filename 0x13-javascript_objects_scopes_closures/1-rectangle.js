@@ -4,5 +4,5 @@ module.exports = class Rectangle {
       this.width = w;
       this.height = h;
     }
-  };
-module.exports = Rectangle;
+  }
+  module.exports = Rectangle;
