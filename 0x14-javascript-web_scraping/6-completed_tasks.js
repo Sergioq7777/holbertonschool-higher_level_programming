@@ -1,18 +1,20 @@
 #!/usr/bin/node
-
 const request = require('request');
-const nObj = {};
-
-request(process.argv.slice(2)[0], function (error, response, body) {
-  if (!error) {
-    const contentJ = JSON.parse(body);
-    if (contentJ.length !== undefined) {
-      for (const key of contentJ) {
-        const id = key.userId;
-        if (nObj[id] === undefined) { nObj[id] = 0; }
-        if (key.completed === true) { nObj[id]++; }
-      }
-    }
-    console.log(nObj);
+const url = process.argv[2];
+const taksT = {};
+const lst = [];
+request(url, function (error, response, body) {
+  if (error) {
+    console.error('error:', error);
   }
+  const todoLst = JSON.parse(body);
+  for (const ind in todoLst) {
+    const task = todoLst[ind];
+    if (task.completed === true) {
+      lst.push(task.userId);
+    }
+  }
+
+  lst.forEach(function (i) { taksT[i] = (taksT[i] || 0) + 1; });
+  console.log(taksT);
 });
