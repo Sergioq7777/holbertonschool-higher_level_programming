@@ -1,21 +1,18 @@
-
 #!/usr/bin/node
-const url = process.argv[2];
+
 const request = require('request');
-request.get(url, function (error, response, body) {
-  if (error) {
-    return console.log(error.toString());
-  }
-  const todos = JSON.parse(body);
-  const dic = {};
-  for (let i = 0; i < todos.length; i++) {
-    if (todos[i].completed === true) {
-      if (dic[todos[i].userId] === undefined) {
-        dic[todos[i].userId] = 1;
-      } else {
-        dic[todos[i].userId] += 1;
+const nObj = {};
+
+request(process.argv.slice(2)[0], function (error, response, body) {
+  if (!error) {
+    const contentJ = JSON.parse(body);
+    if (contentJ.length !== undefined) {
+      for (const key of contentJ) {
+        const id = key.userId;
+        if (nObj[id] === undefined) { nObj[id] = 0; }
+        if (key.completed === true) { nObj[id]++; }
       }
     }
+    console.log(nObj);
   }
-  console.log(dic);
 });
