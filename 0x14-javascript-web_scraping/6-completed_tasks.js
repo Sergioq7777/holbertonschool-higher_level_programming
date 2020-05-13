@@ -1,21 +1,21 @@
 
 #!/usr/bin/node
-const request = require('request');
 const url = process.argv[2];
-const taksT = {};
-const lst = [];
-request(url, function (error, response, body) {
+const request = require('request');
+request.get(url, function (error, response, body) {
   if (error) {
-    console.error('error:', error);
+    return console.log(error.toString());
   }
-  const todoLst = JSON.parse(body);
-  for (const ind in todoLst) {
-    const task = todoLst[ind];
-    if (task.completed === true) {
-      lst.push(task.userId);
+  const todos = JSON.parse(body);
+  const dic = {};
+  for (let i = 0; i < todos.length; i++) {
+    if (todos[i].completed === true) {
+      if (dic[todos[i].userId] === undefined) {
+        dic[todos[i].userId] = 1;
+      } else {
+        dic[todos[i].userId] += 1;
+      }
     }
   }
-
-  lst.forEach(function (i) { taksT[i] = (taksT[i] || 0) + 1; });
-  console.log(taksT);
+  console.log(dic);
 });
